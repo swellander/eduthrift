@@ -11,9 +11,9 @@ import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase';
 import firebase from 'firebase';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import theme from './theme';
+import theme from './style/theme';
 import initialState from './initialState.json';
-
+import './style/main.css';
 
 
 
