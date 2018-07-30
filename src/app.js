@@ -14,7 +14,8 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './style/theme';
 import initialState from './initialState.json';
 import './style/main.css';
-
+import Header from './components/header';
+import Grid from '@material-ui/core/Grid';
 
 
 
@@ -27,7 +28,7 @@ import './style/main.css';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import SignupPage from './pages/signup';
-
+import SandwichesPage from './pages/sandwiches';
 
 
 
@@ -95,13 +96,20 @@ export default class App extends React.Component{
 	return(
 	    <MuiThemeProvider theme={theme}>
 		<Provider store={store}>
-		    <ConnectedRouter>
-			<div>
-			    <Route exact path="/" component={HomePage} />
-			    <Route exact path="/login" component={LoginPage} />
-			    <Route exact path="/signup" component={SignupPage} />
-			</div>
-		    </ConnectedRouter>
+			<ConnectedRouter>
+			    <div id="container">
+				<Grid container
+				justify="center">
+				    <Grid item sm={6}>
+					<Header></Header>
+					<Route exact path="/" component={HomePage} />
+					<Route exact path="/login" component={LoginPage} />
+					<Route exact path="/signup" component={SignupPage} />
+					<Route exact path="/sandwiches" component={SandwichesPage} />
+				    </Grid>
+				</Grid>
+			    </div>
+			</ConnectedRouter>
 		</Provider>
 	    </MuiThemeProvider>
 	);
