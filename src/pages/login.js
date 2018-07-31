@@ -25,8 +25,7 @@ class LoginPage extends React.Component{
 	event.preventDefault();
 	this.props.firebase.login(this.state)
 	    .then((response) => {
-		console.log(response);
-		console.log(this.props);
+		// do something
 	    })
 	    .catch((error) => {
 		switch(error.code){
