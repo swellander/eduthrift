@@ -45,11 +45,11 @@ const firebaseConfig = {
        --------
      */
     apiKey: "AIzaSyBG77YDn4V4IdZ-FeOtRz_cxWVWGPh5W8w",
-    authDomain: "cooper-csesg-project-template.firebaseapp.com",
-    databaseURL: "https://cooper-csesg-project-template.firebaseio.com",
+    authDomain: "hackcooper2018.firebaseapp.com",
+    databaseURL: "https://hackcooper2018.firebaseio.com",
     projectId: "hackcooper2018",
-    storageBucket: "cooper-csesg-project-template.appspot.com",
-    messagingSenderId: "871061605870"
+    storageBucket: "hackcooper2018.appspot.com",
+    messagingSenderId: "334634513401"
 };
 
 // react-redux-firebase config
