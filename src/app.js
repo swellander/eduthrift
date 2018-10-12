@@ -44,10 +44,10 @@ const firebaseConfig = {
        REPLACE WITH YOUR FIREBASE CREDENTIALS
        --------
      */
-    apiKey: "AIzaSyAc_q2GfZSdtql6W76zbP6J3LG3s6OD3e4",
+    apiKey: "AIzaSyBG77YDn4V4IdZ-FeOtRz_cxWVWGPh5W8w",
     authDomain: "cooper-csesg-project-template.firebaseapp.com",
     databaseURL: "https://cooper-csesg-project-template.firebaseio.com",
-    projectId: "cooper-csesg-project-template",
+    projectId: "hackcooper2018",
     storageBucket: "cooper-csesg-project-template.appspot.com",
     messagingSenderId: "871061605870"
 };
