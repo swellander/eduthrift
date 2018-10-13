@@ -23,7 +23,7 @@ class GetSpecificBooks extends React.Component {
   }
 
   render() {
-    const { title, author, age, condition, subject } = this.state;
+    const { quantity, title, author, age, condition, subject } = this.state;
     return (
       <form name="getSpecific" onSubmit={this.handleSubmit}>
         <h4>Please give specific details of book</h4>
@@ -32,7 +32,8 @@ class GetSpecificBooks extends React.Component {
         <br />
         <label htmlFor="author">Author: </label>
         <input name="author" value={title} onChange={this.handleChange} />
-        <label htmlFor="quantity">Author: </label>
+        <label htmlFor="quantity">Quantity: </label>
+
         <input name="quantity" value={quantity} onChange={this.handleChange} />
         <br />
         <label htmlFor="age">Age: </label>
@@ -65,4 +66,4 @@ class GetSpecificBooks extends React.Component {
     );
   }
 }
-export default GetGeneralBooks;
+export default GetSpecificBooks;

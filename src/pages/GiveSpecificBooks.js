@@ -23,7 +23,7 @@ class GiveSpecificBooks extends React.Component {
   }
 
   render() {
-    const { title, author, age, condition, subject } = this.state;
+    const { quantity, title, author, age, condition, subject } = this.state;
     return (
       <form name="giveSpecific" onSubmit={this.handleSubmit}>
         <h4>Please give specific details of book</h4>
