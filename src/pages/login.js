@@ -11,7 +11,61 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';
 
-class LoginPage extends React.Component {
+const styles = {
+  button: {
+    borderRadius: 2,
+    width: 150,
+    height: 50,
+    color: 'white',
+    background: 'darkgreen',
+    '&:hover': {
+        color: 'darkgreen',
+        background: '#F6F6F6',
+    }
+  },
+
+  input: {
+    color:"darkgreen",
+    border:'none',
+    paddingLeft: 5,
+  },
+
+  signupcard: {
+    background: '#F6F6F6',
+    width: '35em',
+    padding: 25,
+    margin: 'auto',
+    marginTop: '3em',
+    borderRadius: 3
+
+},
+
+formcontrol: {
+  width: 500,
+  margin: 20,
+},
+
+textfield: {
+  background: 'white',
+  padding: 5,
+  border: '1px solid lightgrey',
+  borderRadius: 3,
+},
+
+h3: {
+  fontSize: 16,
+  padding: 0,
+  margin: 0,
+  lineHeight: 0,
+  color: 'darkgreen',
+  textAlign: 'left',
+},
+
+
+
+};
+
+class LoginPage extends React.Component{
 
 	componentDidMount() {
 		window.scrollTo(0, 0)
@@ -61,55 +115,63 @@ class LoginPage extends React.Component {
 	logout() {
 		this.props.firebase.logout();
 	}
-
-	render() {
+  render() {
 		let payload;
 		if (!this.props.auth.isLoaded) {
 			// auth is not warmed up
 			payload = null;
 		}
-		if (this.props.auth.isLoaded && this.props.auth.isEmpty) {
-			// auth is ready
-			// but user is not logged in
-			payload =
-				<form onSubmit={(event) => { this.handleSubmit(event); }}>
-					<FormControl fullWidth>
-						<TextField
-							label="Email"
-							value={this.state.email}
-							onChange={(event) => { this.handleChange(event, 'email'); }}
-							margin="normal"
-						/>
-					</FormControl>
-					<FormControl fullWidth>
-						<TextField
-							label="Password"
-							type="password"
-							value={this.state.password}
-							onChange={(event) => { this.handleChange(event, 'password'); }}
-							margin="normal"
-						/>
-					</FormControl>
-					<Button type="submit"
-						variant="contained"
-						color="primary">
-						Login
-		</Button>
-				</form>;
-		}
-		if (this.props.auth.isLoaded && !this.props.auth.isEmpty) {
-			console.log(this.props.auth);
-			// auth is warmed up
-			// and user is not logged in
-			payload = <div>
-				<div>
-					Welcome {this.props.auth.email}
-				</div>
-				<div>
-					<Button variant="contained"
-						color="secondary"
-						onClick={() => { this.props.firebase.logout(); }}>
-						Logout
+
+	if(this.props.auth.isLoaded && this.props.auth.isEmpty){
+	    // auth is ready
+	    // but user is not logged in
+	    payload =
+
+      <form onSubmit={(event) => {this.handleSubmit(event);}}>
+
+      <div style={styles.signupcard}>
+
+    <FormControl style={styles.formcontrol}>
+
+    <h3 style={styles.h3}>Email:</h3>
+		    <TextField
+        style={styles.textfield}
+        InputProps={{style: styles.input,}}
+			value={this.state.email}
+			onChange={(event) => {this.handleChange(event, 'email');}}
+			margin="normal"/>
+		</FormControl>
+
+    <FormControl style={styles.formcontrol}>
+    <h3 style={styles.h3}>Password:</h3>
+		    <TextField
+        style={styles.textfield}
+        InputProps={{style: styles.input,}}
+			type="password"
+			value={this.state.password}
+			onChange={(event) => {this.handleChange(event, 'password');}}
+			margin="normal"
+		    />
+		</FormControl>
+
+    <Button
+    style={styles.button}
+    type="submit">Login</Button>
+    </div>
+	    </form>;
+	}
+	if(this.props.auth.isLoaded && !this.props.auth.isEmpty){
+	    // auth is warmed up
+	    // and user is not logged in
+	    payload = <div>
+		<div>
+		    Welcome {this.props.auth.email}
+		</div>
+		<div>
+		    <Button variant="contained"
+			    color="secondary"
+			    onClick={() => {this.props.firebase.logout();}}>
+			Logout
 		    </Button>
 
 				</div>

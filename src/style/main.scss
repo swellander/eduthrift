@@ -1,3 +1,6 @@
+body {
+ font-family: helvetica;
+}
 #container {
   margin-top: 5rem;
 }
@@ -6,7 +9,7 @@
 
 a {
   text-decoration: none;
-  color: green; 
+  color: green;
 }
 
 h1 {
@@ -30,14 +33,14 @@ p {
 }
 
 #button1{
-	background-color: #b8b8e0; 
+	background-color: #b8b8e0;
     font-size: 63px;
     color: #4d4d4d;
 
 }
 
 #button2 {
-	background-color: #adcceb; 
+	background-color: #adcceb;
     font-size: 63px;
         color: #4d4d4d;
 
@@ -51,9 +54,9 @@ body {
   display: block;
   font-family: 'Libre Franklin', sans-serif;;
   color: black;
-  letter-spacing: 1px; 
+  letter-spacing: 1px;
   margin: 0;
-  padding: 0; 
+  padding: 0;
   top: 0;
   line-height: 150%;
 }
@@ -144,5 +147,3 @@ body {
 body {
 	background-color: #013145;
 }
-
-

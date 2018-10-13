@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';
 
 const styles = {
@@ -16,15 +17,15 @@ const styles = {
     width: 150,
     height: 50,
     color: 'white',
-    background: '#013243',
+    background: 'darkgreen',
     '&:hover': {
-        color: '#013243',
+        color: 'darkgreen',
         background: '#F6F6F6',
     }
   },
 
   input: {
-    color:"#013243",
+    color:"darkgreen",
     border:'none',
     paddingLeft: 5,
   },
@@ -56,7 +57,7 @@ h3: {
   padding: 0,
   margin: 0,
   lineHeight: 0,
-  color: '#013243',
+  color: 'darkgreen',
   textAlign: 'left',
 },
 
@@ -140,51 +141,50 @@ class SignupPage extends React.Component{
 	    payload =
       <form onSubmit={(event) => {this.handleSubmit(event);}}>
 
-      <div className={this.props.classes.signupcard}>
-          <FormControl className={this.props.classes.formcontrol}>
-          <h3 className={this.props.classes.h3}>Email:</h3>
+      <div style={styles.signupcard}>
+          <FormControl style={styles.formcontrol}>
+          <h3 style={styles.h3}>Email:</h3>
     		    <TextField
-          className={this.props.classes.textfield}
-          InputProps={{className: this.props.classes.input,}}
+          style={styles.textfield}
+          InputProps={{style: styles.input,}}
     			value={this.state.email}
     			onChange={(event) => {this.handleChange(event, 'email');}}
     			margin="normal"/>
 	        </FormControl>
 
-          <FormControl className={this.props.classes.formcontrol}>
-          <h3 className={this.props.classes.h3}>First Name:</h3>
+          <FormControl style={styles.formcontrol}>
+          <h3 style={styles.h3}>First Name:</h3>
             <TextField
-          className={this.props.classes.textfield}
-          InputProps={{className: this.props.classes.input,}}
+          style={styles.textfield}
+          InputProps={{style: styles.input,}}
           value={this.state.firstname}
           onChange={(event) => {this.handleChange(event, 'firstname');}}
           margin="normal"/>
           </FormControl>
 
-          <FormControl className={this.props.classes.formcontrol}>
-          <h3 className={this.props.classes.h3}>Last Name:</h3>
+          <FormControl style={styles.formcontrol}>
+          <h3 style={styles.h3}>Last Name:</h3>
             <TextField
-          className={this.props.classes.textfield}
-          InputProps={{className: this.props.classes.input,}}
+          style={styles.textfield}
+          InputProps={{style: styles.input,}}
           value={this.state.lastname}
           onChange={(event) => {this.handleChange(event, 'lastname');}}
           margin="normal"/>
           </FormControl>
 
-		      <FormControl className={this.props.classes.formcontrol}>
-          <h3 className={this.props.classes.h3}>Password:</h3>
+		      <FormControl style={styles.formcontrol}>
+          <h3 style={styles.h3}>Password:</h3>
     		    <TextField
-          className={this.props.classes.textfield}
-          InputProps={{className: this.props.classes.input,}}
+          style={styles.textfield}
+          InputProps={{style: styles.input,}}
     			type="password"
     			value={this.state.password}
     			onChange={(event) => {this.handleChange(event, 'password');}}
     			margin="normal"/>
 		      </FormControl>
 
-    <Button className={this.props.classes.button}
-      type="submit"
-			color="primary">Signup</Button>
+    <Button style={styles.button}
+      type="submit">Signup</Button>
 
       </div>
 	</form>;
