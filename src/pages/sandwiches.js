@@ -7,108 +7,120 @@ import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 
 
-class SandwichesPage extends React.Component{
-    constructor(props){
-	super(props);
-	this.state = {
-	    name: '',
-	    ingredients: '',
-	    reason: ''
-	}
-    }
-
-    handleChange(event, field){
-	this.setState({
-	    [field]: event.target.value
-	});
-    }
-
-    handleSubmit(event){
-	event.preventDefault();
-	this.props.firebase.push('sandwiches', this.state)
-	// also available:
-	// this.props.firebase.update
-	// this.props.firebase.remove
-	    .then((response) => {
-		// do something
-		this.setState({
-		    name: '',
-		    ingredients: '',
-		    reason: ''
-		});
-	    })
-	    .catch((error) => {
-		switch(error.code){
-			// do something
-		    default:
-			// default error
+class SandwichesPage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			title: '',
+			author: '',
+			quantity: 0,
+			condition: ''
 		}
-	    });
-    }
+	}
 
-    
-    render(){
-	let payload;
-	if(!isLoaded(this.props.sandwiches)){
-	    // still waiting for connection
-	    payload = null;
+	handleChange(event, field) {
+		this.setState({
+			[field]: event.target.value
+		});
 	}
-	if(isLoaded(this.props.sandwiches) && !isEmpty(this.props.sandwiches)){
-	    payload = Object.keys(this.props.sandwiches).map((key) => {
-		let sandwich = this.props.sandwiches[key];
-		return <li key={key}>
-		    <strong>{sandwich.name}</strong> - {sandwich.ingredients}<br />
-		<i>{sandwich.reason}</i>
-		</li>
-	    });
+
+	handleSubmit(event) {
+		event.preventDefault();
+		this.props.firebase.push('books', this.state)
+			// also available:
+			// this.props.firebase.update
+			// this.props.firebase.remove
+			.then((response) => {
+				// do something
+				this.setState({
+					title: '',
+					author: '',
+					quantity: 0,
+					condition: ''
+				});
+			})
+			.catch((error) => {
+				switch (error.code) {
+					// do something
+					default:
+					// default error
+				}
+			});
 	}
-	return(
-	    <div>
-		<form onSubmit={(event) => {this.handleSubmit(event);}}>
-		    <FormControl fullWidth>
-			<TextField
-			    label="Sandwich Name"
-			    value={this.state.name}
-			    onChange={(event) => {this.handleChange(event, 'name');}}
-			    margin="normal"
-			/>
-		    </FormControl>
-		    <FormControl fullWidth>
-			<TextField
-			    label="Ingredients"
-			    value={this.state.ingredients}
-			    onChange={(event) => {this.handleChange(event, 'ingredients');}}
-			    margin="normal"
-			/>
-		    </FormControl>
-		    <FormControl fullWidth>
-			<TextField
-			    label="Why is it so good?"
-			    value={this.state.reason}
-			    onChange={(event) => {this.handleChange(event, 'reason');}}
-			    margin="normal"
-			/>
-		    </FormControl>
-		    <Button type="submit"
-				  variant="contained"
-				  color="primary">
-			Add
+
+
+	render() {
+		let payload;
+		if (!isLoaded(this.props.books)) {
+			// still waiting for connection
+			payload = null;
+		}
+		if (isLoaded(this.props.books) && !isEmpty(this.props.books)) {
+			payload = Object.keys(this.props.books).map((key) => {
+				let book = this.props.books[key];
+				return <li key={key}>
+					<strong>{book.title}</strong> - {book.author}<br />
+					<p>Condition: {book.condition}</p>
+					<p>Quantity: {book.quantity}</p>
+				</li>
+			});
+		}
+		return (
+			<div>
+				<form onSubmit={(event) => { this.handleSubmit(event); }}>
+					<FormControl fullWidth>
+						<TextField
+							label="Title"
+							value={this.state.title}
+							onChange={(event) => { this.handleChange(event, 'title'); }}
+							margin="normal"
+						/>
+					</FormControl>
+					<FormControl fullWidth>
+						<TextField
+							label="Author"
+							value={this.state.author}
+							onChange={(event) => { this.handleChange(event, 'author'); }}
+							margin="normal"
+						/>
+					</FormControl>
+					<FormControl fullWidth>
+						<TextField
+							label="Condition"
+							value={this.state.condition}
+							onChange={(event) => { this.handleChange(event, 'condition'); }}
+							margin="normal"
+						/>
+					</FormControl>
+					<FormControl>
+						<TextField
+							type="number"
+							label="Quantity"
+							value={this.state.quantity}
+							onChange={(event) => { this.handleChange(event, 'quantity'); }}
+							margin="normal"
+						/>
+					</FormControl>
+					<Button type="submit"
+						variant="contained"
+						color="primary">
+						Add
 		    </Button>
-		</form>
-		My favorite sandwiches are:
-		<ul>
-		    {payload}
-		</ul>
-	    </div>
-	)
-    }
+				</form>
+				My favorite books are:
+				<ul>
+					{payload}
+				</ul>
+			</div>
+		)
+	}
 }
 
 export default compose(
-  firebaseConnect((props) => [
-    { path: 'sandwiches' }
-  ]),
-  connect((state, props) => ({
-    sandwiches: state.firebase.data.sandwiches
-  }))
+	firebaseConnect((props) => [
+		{ path: 'books' }
+	]),
+	connect((state, props) => ({
+		books: state.firebase.data.books
+	}))
 )(SandwichesPage)
