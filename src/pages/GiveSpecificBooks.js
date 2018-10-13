@@ -38,7 +38,10 @@ class GiveSpecificBooks extends React.Component {
         const reqArray = keys.map(key => {
           return this.props.requests[key];
         });
-        if (isMatch(this.state, reqArray)) {
+
+        const match = isMatch(this.state, reqArray);
+        if (match) {
+          console.log(match.userId)
           return this.props.history.push('/match');
         }
         this.setState({

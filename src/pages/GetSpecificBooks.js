@@ -19,7 +19,6 @@ class GetSpecificBooks extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   componentDidUpdate(prevProps) {
     if (!prevProps.auth.uid && this.props.auth.uid)
       this.setState({ userId: this.props.auth.uid });
@@ -36,7 +35,10 @@ class GetSpecificBooks extends React.Component {
         const bookArray = keys.map(key => {
           return this.props.books[key];
         });
+
+        const match = isMatch(this.state, bookArray);
         if (isMatch(this.state, bookArray)) {
+          console.log(match);
           return this.props.history.push('/match');
         }
         this.setState({
