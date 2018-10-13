@@ -11,6 +11,7 @@ class GetGeneralBooks extends React.Component {
       quantity: 0,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(ev) {
@@ -23,7 +24,7 @@ class GetGeneralBooks extends React.Component {
   render() {
     const { title, author, age, condition, subject } = this.state;
     return (
-      <form name="getGeneral" onSubmit={handleSubmit}>
+      <form name="getGeneral" onSubmit={this.handleSubmit}>
         <h4>Please give general details of book</h4>
 
         <label htmlFor="quantity">Quantity: </label>

@@ -12,6 +12,7 @@ class GetSpecificBooks extends React.Component {
       subject: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(ev) {
@@ -24,7 +25,7 @@ class GetSpecificBooks extends React.Component {
   render() {
     const { title, author, age, condition, subject } = this.state;
     return (
-      <form name="getSpecific" onSubmit={handleSubmit}>
+      <form name="getSpecific" onSubmit={this.handleSubmit}>
         <h4>Please give specific details of book</h4>
         <label htmlFor="title">Title: </label>
         <input name="title" value={title} onChange={this.handleChange} />
