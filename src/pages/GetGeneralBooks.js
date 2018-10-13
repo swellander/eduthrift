@@ -49,7 +49,7 @@ class GetGeneralBooks extends React.Component {
           <option value="english">english</option>
           <option value="math">math</option>
         </select>
-        <button type="submit">Submit</button>
+        <button type="submit">Get</button>
       </form>
     );
   }
