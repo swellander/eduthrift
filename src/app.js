@@ -21,7 +21,6 @@ import GetSpecificBooks from './pages/GetSpecificBooks';
 import GiveGeneralBooks from './pages/GiveGeneralBooks';
 import GiveSpecificBooks from './pages/GiveSpecificBooks';
 
-
 /*
    --------
    import your pages here
@@ -42,7 +41,6 @@ import Get_gen from './pages/Get_gen';
 import ProfilePage from './pages/profile';
 import Match from './pages/match';
 import MakeRequest from './pages/makeRequest';
-
 
 /*
    --------
@@ -107,10 +105,28 @@ export default class App extends React.Component {
                   <Route exact path="/request" component={MakeRequest} />
                   <Route exact path="/profile" component={ProfilePage} />
                   <Route exact path="/bookList" component={BookList} />
-                  <Route exact path="/getGeneralBooks" component={GetGeneralBooks} />
-                  <Route exact path="/getSpecificBooks" component={GetSpecificBooks} />
-                  <Route exact path="/giveGeneralBooks" component={GiveGeneralBooks} />
-                  <Route exact path="/giveSpecificBooks" component={GiveSpecificBooks} />
+                  <Route
+                    exact
+                    path="/getGeneralBooks"
+                    component={GetGeneralBooks}
+                  />
+                  <Route
+                    exact
+                    path="/getSpecificBooks"
+                    render={({ history }) => (
+                      <GetSpecificBooks history={history} />
+                    )}
+                  />
+                  <Route
+                    exact
+                    path="/giveGeneralBooks"
+                    component={GiveGeneralBooks}
+                  />
+                  <Route
+                    exact
+                    path="/giveSpecificBooks"
+                    component={GiveSpecificBooks}
+                  />
                   <Route exact path="/Get" component={Get} />
                   <Route exact path="/Give" component={Give} />
                   <Route exact path="/Give_gen" component={Give_gen} />
@@ -118,6 +134,8 @@ export default class App extends React.Component {
                   <Route exact path="/Get_spec" component={Get_spec} />
                   <Route exact path="/Get_gen" component={Get_gen} />
                   <Route exact path="/match" component={Match} />
+
+
 
 
             </div>

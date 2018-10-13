@@ -6,6 +6,7 @@ import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
+import { check, sendEmail } from '../utils';
 
 class SandwichesPage extends React.Component {
 	constructor(props) {
@@ -33,7 +34,9 @@ class SandwichesPage extends React.Component {
 			.then((response) => {
 				//call matching function
 				// isMatch(this.state, fakeRequests)
+				sendEmail('daniel8247@outlook.com', { name: 'Daniel' });
 				this.props.history.push('/match');
+
 				//if true => redirect to match page - push to history
 				//history.push('/match');
 				//else 
@@ -56,6 +59,7 @@ class SandwichesPage extends React.Component {
 	}
 
 	render() {
+		console.log('hey', this.props.auth)
 		let payload;
 		if (!isLoaded(this.props.books)) {
 			// still waiting for connection
@@ -128,5 +132,6 @@ export default compose(
 	]),
 	connect((state, props) => ({
 		books: state.firebase.data.books,
+		auth: state.firebase.auth
 	}))
 )(SandwichesPage)

@@ -1,5 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 import { Button } from 'reactstrap';
+import { isMatch } from '../utils';
 
 class GiveSpecificBooks extends React.Component {
   constructor() {
@@ -11,16 +15,47 @@ class GiveSpecificBooks extends React.Component {
       age: '',
       condition: '',
       subject: '',
+      userId: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (!prevProps.auth.uid && this.props.auth.uid)
+      this.setState({ userId: this.props.auth.uid });
+  }
   handleChange(ev) {
     this.setState({ [ev.target.name]: ev.target.value });
   }
   handleSubmit(ev) {
     ev.preventDefault();
+
+    this.props.firebase
+      .push('books', this.state)
+      .then(response => {
+        const keys = Object.keys(this.props.requests);
+        const reqArray = keys.map(key => {
+          return this.props.requests[key];
+        });
+
+        const match = isMatch(this.state, reqArray);
+        if (match) {
+          console.log(match.userId)
+          return this.props.history.push('/match');
+        }
+        this.setState({
+          title: '',
+          author: '',
+        });
+      })
+      .catch(error => {
+        switch (error.code) {
+          // do something
+          default:
+          // default error
+        }
+      });
   }
 
   render() {
@@ -67,4 +102,11 @@ class GiveSpecificBooks extends React.Component {
     );
   }
 }
-export default GiveSpecificBooks;
+
+export default compose(
+  firebaseConnect(props => [{ path: 'requests' }]),
+  connect((state, props) => ({
+    requests: state.firebase.data.requests,
+    auth: state.firebase.auth,
+  }))
+)(GiveSpecificBooks);
