@@ -22,7 +22,7 @@ class GiveGeneralBooks extends React.Component {
   render() {
     const { title, author, age, condition, subject } = this.state;
     return (
-      <form name="getGeneral" onSubmit={handleSubmit}>
+      <form name="giveGeneral" onSubmit={handleSubmit}>
         <h4>Please give general details of book</h4>
 
         <label htmlFor="quantity">Quantity: </label>
