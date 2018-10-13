@@ -40,6 +40,7 @@ import Give_gen from './pages/Give_gen';
 import Get_spec from './pages/Get_spec';
 import Get_gen from './pages/Get_gen';
 import ProfilePage from './pages/profile';
+import Match from './pages/match';
 
 
 /*
