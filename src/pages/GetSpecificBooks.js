@@ -14,11 +14,16 @@ class GetSpecificBooks extends React.Component {
       age: '',
       condition: '',
       subject: '',
+      userId: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (!prevProps.auth.uid && this.props.auth.uid)
+      this.setState({ userId: this.props.auth.uid });
+  }
   handleChange(ev) {
     this.setState({ [ev.target.name]: ev.target.value });
   }
@@ -99,5 +104,6 @@ export default compose(
   firebaseConnect(props => [{ path: 'books' }]),
   connect((state, props) => ({
     books: state.firebase.data.books,
+    auth: state.firebase.auth,
   }))
 )(GetSpecificBooks);
