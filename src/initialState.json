@@ -1,2 +1,11 @@
 {
+  "books": {
+    "id": 1,
+    "title": "Adventures of Tom Sawyer",
+    "author": "Mark Twain",
+    "condition": "new",
+    "age": "preteen",
+    "quantity": 200,
+    "subject": "english"
+  }
 }
