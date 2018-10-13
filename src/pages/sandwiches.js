@@ -6,7 +6,6 @@ import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
-import fakeRequestData from '../fakeRequestData';
 
 class SandwichesPage extends React.Component {
 	constructor(props) {
