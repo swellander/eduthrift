@@ -1,11 +1,12 @@
 import React from 'react';
+import fakeRequests from '../fakeRequestData';
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
-
+import fakeRequestData from '../fakeRequestData';
 
 class SandwichesPage extends React.Component {
 	constructor(props) {
@@ -31,6 +32,13 @@ class SandwichesPage extends React.Component {
 			// this.props.firebase.update
 			// this.props.firebase.remove
 			.then((response) => {
+				//call matching function
+				// isMatch(this.state, fakeRequests)
+				this.props.history.push('/match');
+				//if true => redirect to match page - push to history
+				//history.push('/match');
+				//else 
+
 				console.log(this.state)
 				this.setState({
 					title: '',
@@ -121,6 +129,6 @@ export default compose(
 		{ path: 'books' }
 	]),
 	connect((state, props) => ({
-		books: state.firebase.data.books
+		books: state.firebase.data.books,
 	}))
 )(SandwichesPage)
