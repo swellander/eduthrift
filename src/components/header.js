@@ -2,46 +2,51 @@ import React from 'react';
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Snackbar from '@material-ui/core/Snackbar';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+const styles = {
+  button: {
+    borderRadius: 5,
+    width: 50,
+    height: 25,
+    padding: 3,
+    color: 'white',
+    fontSize: 16,
+
+  },
+
+  navbar: {
+    background: 'darkgreen',
+    color: 'white',
+    font: 'helvetica'
+
+  },
+
+  h1: {
+    color: 'white',
+    fontWeight: 'bolder',
+    decoration: 'none'
+  }
+}
 
 class Header extends React.Component{
     constructor(props){
 	super(props);
 	this.state = {
-	    snackbar: {
-		open: false,
-		message: null
-	    }
+
 	}
-    }
-    
-    logout(){
-	this.props.firebase.logout();
-	this.setState({
-	    snackbar: {
-		open: true,
-		message: <p>Goodbye!</p>
-	    }
-	});
     }
 
-    closeSnackbar(event, reason){
-	if(reason == "clickaway"){
-	    // do nothing
-	    return;
-	}
-	this.setState({
-	    snackbar: {
-		open: false
-	    }
-	});
+    logout(){
+	this.props.firebase.logout();
     }
-    
+
     render(){
 	let greeting;
 	if(!this.props.auth.isLoaded){
@@ -51,31 +56,37 @@ class Header extends React.Component{
 	}
 	if(this.props.auth.isLoaded && !this.props.auth.isEmpty){
 	    // user is logged in!
-	    greeting = <span>Hello {this.props.auth.email}!
-		<Link to="/sandwiches">
-		    <Button variant="contained"
-			style={{marginLeft: 30}}
-			    color="secondary">
-			Muh Sandwiches
-		    </Button>
-	    	</Link>
+	 greeting = <span>
+   <Link to="/profile">
+      <Button style = {styles.button}
+              variant="contained"
+              style={{marginLeft: 30}}
+            >Profile</Button></Link>
 
-		<Button color="inherit"
-			onClick={() => {this.logout();}}
-		>Logout</Button>
-	    </span>;
+  <Link to="/matches">
+		    <Button style = {styles.button}
+        variant="contained"
+			           style={{marginLeft: 30}}
+			           >Matches</Button></Link>
+
+	<Button style = {styles.button}
+  color="inherit"
+			     onClick={() => {this.logout();}}>Logout</Button>
+
+      </span>;
 	}
 	if(this.props.auth.isLoaded && this.props.auth.isEmpty){
 	    // user is not logged in
 	    greeting =
 		<span>
 		    <Link to="/login">
-			<Button color="inherit">
+			<Button style = {styles.button}>
 			Login
 			</Button>
 	    	    </Link>
+
 		    <Link to="/signup">
-			<Button color="secondary" variant="contained">
+			<Button style = {styles.button}>
 			Signup
 			</Button>
 	    	    </Link>
@@ -86,27 +97,18 @@ class Header extends React.Component{
 	return(
 	    <div>
 		<AppBar>
-		    <Toolbar>
+		    <Toolbar style = {styles.navbar}>
 			    <Typography variant="title" color="inherit" style={{flexGrow: 1}}>
-				<Link to="/">
-				    Cooper Union CSESG Summer 2018 Boilerplate
-				</Link>
+			<a href="/">	<h1 style = {styles.h1}>
+				    EduThrift</h1></a>
+
 			    </Typography>
 			<div>
 			    {greeting}
 			</div>
 		    </Toolbar>
 		</AppBar>
-		<Snackbar
-		    anchorOrigin={{
-			vertical: 'bottom',
-			horizontal: 'left',
-		    }}
-		    open={this.state.snackbar.open}
-		    autoHideDuration={2500}
-		    onClose={(event, reason) => {this.closeSnackbar(event, reason);}}
-		    message={this.state.snackbar.message}
-		/>
+
 	    </div>
 	);
     }
