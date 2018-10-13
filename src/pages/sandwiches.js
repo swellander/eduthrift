@@ -55,7 +55,6 @@ class SandwichesPage extends React.Component {
 			});
 	}
 
-
 	render() {
 		let payload;
 		if (!isLoaded(this.props.books)) {
