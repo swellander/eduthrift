@@ -31,7 +31,7 @@ class SandwichesPage extends React.Component {
 			// this.props.firebase.update
 			// this.props.firebase.remove
 			.then((response) => {
-				// do something
+				console.log(this.state)
 				this.setState({
 					title: '',
 					author: '',
@@ -61,7 +61,7 @@ class SandwichesPage extends React.Component {
 				return <li key={key}>
 					<strong>{book.title}</strong> - {book.author}<br />
 					<p>Condition: {book.condition}</p>
-					<p>Quantity: {book.quantity}</p>
+					<i>{book.quantity}</i>
 				</li>
 			});
 		}
