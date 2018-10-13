@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Button } from 'reactstrap';
 class GetSpecificBooks extends React.Component {
   constructor() {
     super();
@@ -61,7 +61,9 @@ class GetSpecificBooks extends React.Component {
           <option value="math">math</option>
         </select>
         <br />
-        <button type="submit">Get</button>
+        <Button color="primary" type="submit">
+          Get
+        </Button>
       </form>
     );
   }

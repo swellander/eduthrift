@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 class GiveGeneralBooks extends React.Component {
   constructor() {
@@ -30,7 +31,7 @@ class GiveGeneralBooks extends React.Component {
         <input name="quantity" value={quantity} onChange={this.handleChange} />
         <br />
         <label htmlFor="age">Age: </label>
-        <select value={age} onChange={this.handleChange}>
+        <select name="age" value={age} onChange={this.handleChange}>
           <option>--select age group --</option>
           <option value="preteen">preteen</option>
           <option value="teen">teen</option>
@@ -38,7 +39,7 @@ class GiveGeneralBooks extends React.Component {
         </select>
         <br />
         <label htmlFor="condition">Condition: </label>
-        <select value={condition} onChange={this.handleChange}>
+        <select name="condition" value={condition} onChange={this.handleChange}>
           <option>--select condition --</option>
           <option value="old">old</option>
           <option value="good">good</option>
@@ -46,7 +47,7 @@ class GiveGeneralBooks extends React.Component {
         </select>
         <br />
         <label htmlFor="subject">Subject: </label>
-        <select value={subject} onChange={this.handleChange}>
+        <select name="subject" value={subject} onChange={this.handleChange}>
           <option>--select subject --</option>
           <option value="science">science</option>
           <option value="history">history</option>
@@ -54,7 +55,7 @@ class GiveGeneralBooks extends React.Component {
           <option value="math">math</option>
         </select>
         <br />
-        <button type="submit">Give</button>
+        <Button type="submit">Give</Button>
         <br />
       </form>
     );
