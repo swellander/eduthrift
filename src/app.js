@@ -39,7 +39,7 @@ import Give_spec from './pages/Give_spec';
 import Give_gen from './pages/Give_gen';
 import Get_spec from './pages/Get_spec';
 import Get_gen from './pages/Get_gen';
-
+import ProfilePage from './pages/profile';
 
 
 /*
@@ -103,6 +103,7 @@ export default class App extends React.Component {
                   <Route exact path="/login" component={LoginPage} />
                   <Route exact path="/signup" component={SignupPage} />
                   <Route exact path="/sandwiches" component={SandwichesPage} />
+                  <Route exact path="/profile" component={ProfilePage} />
                   <Route exact path="/bookList" component={BookList} />
                   <Route exact path="/getGeneralBooks" component={GetGeneralBooks} />
                   <Route exact path="/getSpecificBooks" component={GetSpecificBooks} />

@@ -1,20 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom'
+import Grid from '@material-ui/core/Grid';
 
 class LoginPage extends React.Component{
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
     constructor(props){
 	super(props);
 	this.state = {
 	    email: '',
-	    password: ''
+	    password: '',
+      firstname: '',
+      lastname: ''
 	};
     }
-    
+
     handleChange(event, field){
 	this.setState({
 	    [field]: event.target.value
@@ -25,6 +37,7 @@ class LoginPage extends React.Component{
 	event.preventDefault();
 	this.props.firebase.login(this.state)
 	    .then((response) => {
+        this.props.history.push('/profile')
 		// do something
 	    })
 	    .catch((error) => {
@@ -48,7 +61,7 @@ class LoginPage extends React.Component{
     logout(){
 	this.props.firebase.logout();
     }
-    
+
     render(){
 	let payload;
 	if(!this.props.auth.isLoaded){
@@ -58,7 +71,8 @@ class LoginPage extends React.Component{
 	if(this.props.auth.isLoaded && this.props.auth.isEmpty){
 	    // auth is ready
 	    // but user is not logged in
-	    payload = <form onSubmit={(event) => {this.handleSubmit(event);}}>
+	    payload =
+      <form onSubmit={(event) => {this.handleSubmit(event);}}>
 		<FormControl fullWidth>
 		    <TextField
 			label="Email"
@@ -96,7 +110,7 @@ class LoginPage extends React.Component{
 			    onClick={() => {this.props.firebase.logout();}}>
 			Logout
 		    </Button>
-		    
+
 		</div>
 	    </div>;
 	}
@@ -110,5 +124,6 @@ class LoginPage extends React.Component{
 
 export default compose(
     firebaseConnect(),
-    connect(({firebase: {auth}}) => ({auth}))
+    connect(({firebase: {auth}}) => ({auth})),
+      connect(({ firebase: { profile } }) => ({ profile }))
 )(LoginPage);
