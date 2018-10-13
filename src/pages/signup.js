@@ -22,7 +22,7 @@ const styles = {
         background: '#F6F6F6',
     }
   },
-  
+
   input: {
     color:"#013243",
     border:'none',
@@ -63,6 +63,7 @@ h3: {
 
 
 };
+
 
 class SignupPage extends React.Component{
   componentDidMount() {
@@ -204,14 +205,16 @@ class SignupPage extends React.Component{
 
 		</div>
 	    </div>;
-	}
-	return(
-	    <div>
-		{payload}
-	    </div>
-	)
+
     }
+    return (
+			<div>
+				{payload}
+			</div>
+		)
+	}
 };
+
 
 export default withStyles(styles)(compose(
     firebaseConnect(),
