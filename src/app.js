@@ -16,6 +16,11 @@ import initialState from './initialState.json';
 import './style/main.css';
 import Header from './components/header';
 import Grid from '@material-ui/core/Grid';
+import GetGeneralBooks from './pages/GetGeneralBooks';
+import GetSpecificBooks from './pages/GetSpecificBooks';
+import GiveGeneralBooks from './pages/GiveGeneralBooks';
+import GiveSpecificBooks from './pages/GiveSpecificBooks';
+
 
 /*
    --------
@@ -96,6 +101,11 @@ export default class App extends React.Component {
                   <Route exact path="/signup" component={SignupPage} />
                   <Route exact path="/sandwiches" component={SandwichesPage} />
                   <Route exact path="/bookList" component={BookList} />
+                  <Route exact path="/getGeneralBooks" component={GetGeneralBooks} />
+                  <Route exact path="/getSpecificBooks" component={GetSpecificBooks} />
+                  <Route exact path="/giveGeneralBooks" component={GiveGeneralBooks} />
+                  <Route exact path="/giveSpecificBooks" component={GiveSpecificBooks} />
+
                 </Grid>
               </Grid>
             </div>
