@@ -26,12 +26,12 @@ class GiveSpecificBooks extends React.Component {
     const { quantity, title, author, age, condition, subject } = this.state;
     return (
       <form name="giveSpecific" onSubmit={this.handleSubmit}>
-        <h4>Please give specific details of book</h4>
+        <h4>Please give specific details of books</h4>
         <label htmlFor="title">Title: </label>
         <input name="title" value={title} onChange={this.handleChange} />
         <br />
         <label htmlFor="author">Author: </label>
-        <input name="author" value={title} onChange={this.handleChange} />
+        <input name="author" value={author} onChange={this.handleChange} />
         <br />
         <label htmlFor="quanity">Quantity: </label>
         <input name="quantity" value={quantity} onChange={this.handleChange} />
@@ -39,12 +39,12 @@ class GiveSpecificBooks extends React.Component {
         <label htmlFor="age">Age: </label>
         <select value={age} onChange={this.handleChange}>
           <option>--select age group --</option>
-          <option value="preteen">old</option>
-          <option value="teen">good</option>
-          <option value="adult">new</option>
+          <option value="preteen">preteen</option>
+          <option value="teen">teen</option>
+          <option value="adult">adult</option>
         </select>
         <br />
-        <label htmlFor="condition">condtion: </label>
+        <label htmlFor="condition">Condition: </label>
         <select value={condition} onChange={this.handleChange}>
           <option>--select condition --</option>
           <option value="old">old</option>
@@ -52,7 +52,7 @@ class GiveSpecificBooks extends React.Component {
           <option value="new">new</option>
         </select>
         <br />
-        <label htmlFor="subject">subject: </label>
+        <label htmlFor="subject">Subject: </label>
         <select value={subject} onChange={this.handleChange}>
           <option>--select subject --</option>
           <option value="science">science</option>
