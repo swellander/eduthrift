@@ -33,6 +33,12 @@ import LoginPage from './pages/login';
 import SignupPage from './pages/signup';
 import SandwichesPage from './pages/sandwiches';
 import BookList from './pages/bookList';
+import Give from './pages/Give';
+import Get from './pages/Get';
+import Give_spec from './pages/Give_spec';
+import Give_gen from './pages/Give_gen';
+import Get_spec from './pages/Get_spec';
+import Get_gen from './pages/Get_gen';
 
 
 
@@ -102,6 +108,12 @@ export default class App extends React.Component {
                   <Route exact path="/getSpecificBooks" component={GetSpecificBooks} />
                   <Route exact path="/giveGeneralBooks" component={GiveGeneralBooks} />
                   <Route exact path="/giveSpecificBooks" component={GiveSpecificBooks} />
+                  <Route exact path="/Get" component={Get} />
+                  <Route exact path="/Give" component={Give} />
+                  <Route exact path="/Give_gen" component={Give_gen} />
+                  <Route exact path="/Give_spec" component={Give_spec} />
+                  <Route exact path="/Get_spec" component={Get_spec} />
+                  <Route exact path="/Get_gen" component={Get_gen} />
 
                 </Grid>
               </Grid>
