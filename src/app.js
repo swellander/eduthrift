@@ -28,10 +28,6 @@ import LoginPage from './pages/login';
 import SignupPage from './pages/signup';
 import SandwichesPage from './pages/sandwiches';
 
-import BookList from './pages/bookList';
-
-
-
 /*
    --------
    configure everything
@@ -54,7 +50,7 @@ const firebaseConfig = {
 
 // react-redux-firebase config
 const rrfConfig = {
-  userProfile: 'books',
+  userProfile: 'users',
 };
 
 // Initialize firebase instance
@@ -79,34 +75,6 @@ const store = createStoreWithFirebase(rootReducer, initialState);
 
 const ConnectedRouter = connect()(Router);
 
-<<<<<<< HEAD
-
-
-export default class App extends React.Component{
-    render(){
-	return(
-	    <MuiThemeProvider theme={theme}>
-		<Provider store={store}>
-			<ConnectedRouter>
-			    <div id="container">
-				<Grid container
-				justify="center">
-				    <Grid item sm={6}>
-					<Header></Header>
-					<Route exact path="/" component={HomePage} />
-					<Route exact path="/login" component={LoginPage} />
-					<Route exact path="/signup" component={SignupPage} />
-					<Route exact path="/sandwiches" component={SandwichesPage} />
-          <Route exact path="/bookList" component={BookList} />
-				    </Grid>
-				</Grid>
-			    </div>
-			</ConnectedRouter>
-		</Provider>
-	    </MuiThemeProvider>
-	);
-    }
-=======
 export default class App extends React.Component {
   render() {
     return (
@@ -129,5 +97,4 @@ export default class App extends React.Component {
       </MuiThemeProvider>
     );
   }
->>>>>>> a33f9665fbf80384b36fb4afd4ec353e3e98c854
 }
