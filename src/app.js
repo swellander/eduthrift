@@ -27,6 +27,12 @@ import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import SignupPage from './pages/signup';
 import SandwichesPage from './pages/sandwiches';
+<<<<<<< HEAD
+import BookList from './pages/bookList';
+
+
+=======
+>>>>>>> 3659fdf2a703d877154d8006d5c3a179d9c0e90d
 
 /*
    --------
@@ -89,6 +95,7 @@ export default class App extends React.Component {
                   <Route exact path="/login" component={LoginPage} />
                   <Route exact path="/signup" component={SignupPage} />
                   <Route exact path="/sandwiches" component={SandwichesPage} />
+                  <Route exact path="/bookList" component={BookList} />
                 </Grid>
               </Grid>
             </div>
