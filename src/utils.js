@@ -28,7 +28,7 @@ export const isMatch = (bookObj, bookArray) => {
       title === bookArray[i].title.toLowerCase() &&
       author === bookArray[i].author.toLowerCase()
     ) {
-      return true;
+      return bookArray[i];
     }
   }
   return false;
