@@ -41,6 +41,7 @@ import Get_spec from './pages/Get_spec';
 import Get_gen from './pages/Get_gen';
 import ProfilePage from './pages/profile';
 import Match from './pages/match';
+import MakeRequest from './pages/makeRequest';
 
 
 /*
@@ -104,6 +105,7 @@ export default class App extends React.Component {
                   <Route exact path="/login" component={LoginPage} />
                   <Route exact path="/signup" component={SignupPage} />
                   <Route exact path="/sandwiches" component={SandwichesPage} />
+                  <Route exact path="/request" component={MakeRequest} />
                   <Route exact path="/profile" component={ProfilePage} />
                   <Route exact path="/bookList" component={BookList} />
                   <Route exact path="/getGeneralBooks" component={GetGeneralBooks} />
