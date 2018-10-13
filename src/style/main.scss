@@ -5,14 +5,145 @@ body {
   margin-top: 5rem;
 }
 
+
+
 a {
   text-decoration: none;
-  color: white;
+  color: green;
 }
 
-a :hover {
-  text-decoration: none;
-  color: 'darkgreen';
-  background-color: 'white';
-  padding: 10px;
+h1 {
+	color: white
+
+}
+
+p {
+	color: white
+
+}
+
+#Give1, #Give2 {
+	  background: #bdbddb;
+
+}
+
+#Get1, #Get2 {
+	  background: #b5cce3;
+
+}
+
+#button1{
+	background-color: #b8b8e0;
+    font-size: 63px;
+    color: #4d4d4d;
+
+}
+
+#button2 {
+	background-color: #adcceb;
+    font-size: 63px;
+        color: #4d4d4d;
+
+}
+
+
+
+body {
+  text-align: center;
+  background: #f3f3f3ff;
+  display: block;
+  font-family: 'Libre Franklin', sans-serif;;
+  color: black;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  line-height: 150%;
+}
+
+#card1{
+	background: #013243;
+	padding-top: 10%;
+  padding-bottom: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+	width: 100%;
+	font-family: 'Libre Franklin', sans-serif;
+	color: white;
+}
+
+#cardHow{
+  background:  #E7B6CC;
+  padding-top: 5%;
+  padding-bottom: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  font-family: 'Libre Franklin', sans-serif;
+  color: #22313F;
+}
+
+#card2{
+	background: #75AADB;
+	padding-top: 5%;
+  padding-bottom: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+	width: 100%;
+	font-family: 'Libre Franklin', sans-serif;
+	color: #22313F;
+}
+
+
+#card4{
+  background: #013243;
+  padding-top: 10%;
+  padding-bottom: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  font-family: 'Libre Franklin', sans-serif;
+  color: white;
+
+}
+
+#message{
+	font-size: 5vw;
+	line-height: 2em;
+}
+
+#submessage{
+	font-size: 1.5vw;
+	line-height: 1.45em;
+	font-family: 'Georgia';
+}
+
+#firstdiv {
+	background: #013243;
+	color: white;
+}
+
+#seconddiv {
+	background: #442359;
+	color: white;
+}
+
+#thirddiv {
+	background: #75AADB;
+	color: white;
+}
+
+#fourthdiv {
+	background: #B1C0DD;
+	color: white;
+}
+
+#fifthdiv {
+	background: #E7B6CC;
+	color: white;
+}
+
+
+body {
+	background-color: #013145;
 }

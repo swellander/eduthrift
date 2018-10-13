@@ -96,8 +96,7 @@ export default class App extends React.Component {
         <Provider store={store}>
           <ConnectedRouter>
             <div id="container">
-              <Grid container justify="center">
-                <Grid item sm={6}>
+
                   <Header />
                   <Route exact path="/" component={HomePage} />
                   <Route exact path="/login" component={LoginPage} />
@@ -135,8 +134,10 @@ export default class App extends React.Component {
                   <Route exact path="/Get_spec" component={Get_spec} />
                   <Route exact path="/Get_gen" component={Get_gen} />
                   <Route exact path="/match" component={Match} />
-                </Grid>
-              </Grid>
+
+
+
+
             </div>
           </ConnectedRouter>
         </Provider>

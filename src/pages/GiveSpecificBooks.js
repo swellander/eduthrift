@@ -22,7 +22,6 @@ class GiveSpecificBooks extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.props.auth);
     if (!prevProps.auth.uid && this.props.auth.uid)
       this.setState({ userId: this.props.auth.uid });
   }
@@ -35,12 +34,14 @@ class GiveSpecificBooks extends React.Component {
     this.props.firebase
       .push('books', this.state)
       .then(response => {
-        console.log('auth:', this.props.auth);
         const keys = Object.keys(this.props.requests);
         const reqArray = keys.map(key => {
           return this.props.requests[key];
         });
-        if (isMatch(this.state, reqArray)) {
+
+        const match = isMatch(this.state, reqArray);
+        if (match) {
+          console.log(match.userId)
           return this.props.history.push('/match');
         }
         this.setState({
@@ -58,7 +59,6 @@ class GiveSpecificBooks extends React.Component {
   }
 
   render() {
-    console.log('STATE: ', this.state);
     const { quantity, title, author, age, condition, subject } = this.state;
     return (
       <form name="giveSpecific" onSubmit={this.handleSubmit}>
