@@ -1,21 +1,14 @@
-export function check(donations, requests) {
+export const isMatch = (bookObj, bookArray) => {
+  const title = bookObj.title.toLowerCase();
+  const author = bookObj.title.toLowerCase();
 
-  for (var i = 0; i < donations.length; i++) {
-
-    if (str.toLowerCase(donations[i].author) == str.toLowerCase(requests.author) && str.toLowerCase(donations[i].title) == str.toLowerCase(requests.title)) {
-
-      // ALLERT USER OF MATCH
-
-      i = requests.length
-
+  for (let i = 0; i < bookArray.length; i++) {
+    if (
+      title === bookArray[i].toLowerCase() &&
+      author === bookArray[i].toLowerCase()
+    ) {
+      return true;
     }
-
-    else {
-
-      i++;
-
-    }
-
   }
-
-}
+  return false;
+};
