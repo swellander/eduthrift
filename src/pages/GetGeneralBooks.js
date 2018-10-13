@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 // import {match} from store;
 
 class GetGeneralBooks extends React.Component {
@@ -22,23 +23,23 @@ class GetGeneralBooks extends React.Component {
   }
 
   render() {
-    const { title, author, age, condition, subject } = this.state;
+    const { quantity, age, condition, subject } = this.state;
     return (
       <form name="getGeneral" onSubmit={this.handleSubmit}>
-        <h4>Please give general details of book</h4>
+        <h4>Please give general details of books</h4>
 
         <label htmlFor="quantity">Quantity: </label>
-        <input name="quantity" value={title} onChange={this.handleChange} />
+        <input name="quantity" value={quantity} onChange={this.handleChange} />
         <br />
         <label htmlFor="age">Age: </label>
         <select value={age} onChange={this.handleChange}>
           <option>--select age group --</option>
-          <option value="preteen">old</option>
-          <option value="teen">good</option>
-          <option value="adult">new</option>
+          <option value="preteen">preteen</option>
+          <option value="teen">teen</option>
+          <option value="adult">adult</option>
         </select>
         <br />
-        <label htmlFor="condition">condtion: </label>
+        <label htmlFor="condition">Condition: </label>
         <select value={condition} onChange={this.handleChange}>
           <option>--select condition --</option>
           <option value="old">old</option>
@@ -46,7 +47,7 @@ class GetGeneralBooks extends React.Component {
           <option value="new">new</option>
         </select>
         <br />
-        <label htmlFor="subject">subject: </label>
+        <label htmlFor="subject">Subject: </label>
         <select value={subject} onChange={this.handleChange}>
           <option>--select subject --</option>
           <option value="science">science</option>
@@ -55,7 +56,9 @@ class GetGeneralBooks extends React.Component {
           <option value="math">math</option>
         </select>
         <br />
-        <button type="submit">Get</button>
+        <Button color="primary" type="submit">
+          Get
+        </Button>
       </form>
     );
   }
