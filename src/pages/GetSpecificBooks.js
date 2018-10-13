@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 import { Button } from 'reactstrap';
 import { isMatch } from '../utils';
+
 class GetSpecificBooks extends React.Component {
   constructor() {
     super();
@@ -36,8 +37,10 @@ class GetSpecificBooks extends React.Component {
           return this.props.books[key];
         });
 
+        //check for match
         const match = isMatch(this.state, bookArray);
         if (isMatch(this.state, bookArray)) {
+          //send matched user an email
           console.log(match);
           return this.props.history.push('/match');
         }
