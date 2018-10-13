@@ -1,5 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 import { Button } from 'reactstrap';
+import { isMatch } from '../utils';
 // import {match} from store;
 
 class GetGeneralBooks extends React.Component {
@@ -64,4 +68,9 @@ class GetGeneralBooks extends React.Component {
   }
 }
 
-export default GetGeneralBooks;
+export default compose(
+  firebaseConnect(props => [{ path: 'requests' }]),
+  connect((state, props) => ({
+    requests: state.firebase.data.requests,
+  }))
+)(GetGeneralBooks);

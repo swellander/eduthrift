@@ -1,5 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 import { Button } from 'reactstrap';
+import { isMatch } from '../utils';
 
 class GiveGeneralBooks extends React.Component {
   constructor() {
